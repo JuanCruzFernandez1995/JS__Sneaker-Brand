@@ -45,6 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 //el add event listener
             
                 boton.addEventListener('click', () => {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        text: `Agregaste "${producto.nombre}" a tu carrito`,
+                        showConfirmButton: false,
+                        timer: 1500,
+                        width: '16rem'
+                      })
                     //esta funcion ejecuta el agregar el carrito con la id del producto
                     agregarAlCarrito(producto.id)
                     //
