@@ -21,7 +21,38 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito = JSON.parse(localStorage.getItem('carrito'))
         actualizarCarrito()
     }
+    fetch("stock.json")
+        .then(response => response.json())
+        .then((result) => {
+            let data = result;
+            data.forEach((producto) => {
+                const div = document.createElement('div')
+                div.classList.add('producto')
+                div.innerHTML = `
+                <img src=${producto.img} alt= "">
+                <h3>${producto.nombre}</h3>
+                <p>Talle: ${producto.talle}</p>
+                <p class="precioProducto">Precio:$ ${producto.precio}</p>
+                <button id="agregar${producto.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+            
+                `
+                contenedorProductos.appendChild(div)
+            
+                //2 - SEGUNDO PASO, LUEGO DE QUE INSERTEMOS EL HTML EN EL DOM:
+                const boton = document.getElementById(`agregar${producto.id}`)
+                //Por cada elemento de mi array, creo un div, lo cuelgo, le pongo un id particular, una vez colgado
+                //le hago un get element by id (el de agregar) Obtengo el elemento y a dicho elemento le agregamos
+                //el add event listener
+            
+                boton.addEventListener('click', () => {
+                    //esta funcion ejecuta el agregar el carrito con la id del producto
+                    agregarAlCarrito(producto.id)
+                    //
+                })
+            })
+        })
 })
+
 //SEXTO PASO
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
@@ -29,7 +60,7 @@ botonVaciar.addEventListener('click', () => {
 })
 
 //PRIMER PRIMER PASO, INYECTAR EL HTML
-stockProductos.forEach((producto) => {
+/*stockProductos.forEach((producto) => {
     const div = document.createElement('div')
     div.classList.add('producto')
     div.innerHTML = `
@@ -53,7 +84,7 @@ stockProductos.forEach((producto) => {
         agregarAlCarrito(producto.id)
         //
     })
-})
+})*/
 
 // 1- PRIMER PASO
 
