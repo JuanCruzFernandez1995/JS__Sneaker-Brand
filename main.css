@@ -22,12 +22,16 @@ header {
     padding: 20px 10%;
     margin-bottom: auto;
     position: relative;
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-image: url('https://images.pexels.com/photos/7524998/pexels-photo-7524998.jpeg');
+    background-color: rgba(56, 64, 104, 0.836);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 400px;
 }
 h1 {
-    color: #000;
+    color: #FFF;
+    background-color: #000;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 40px;
@@ -51,11 +55,12 @@ h1 {
 }
 
 #contenedor-productos {
-    max-width: 1200px;
-    margin: 60px auto;
+    max-width: auto;
+    margin: 5px auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: rgb(255, 239, 218);
 }
 
 p {
